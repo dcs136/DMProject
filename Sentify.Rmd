@@ -3,7 +3,9 @@ title: "Sentify"
 output: html_notebook
 ---
  
-```{r}
+ 
+# Spotyfy API
+```{r, message=F}
 #install.packages('spotifyr')
 library(dplyr)
 library(spotifyr)
@@ -11,22 +13,46 @@ library(spotifyr)
 
 ```{r}
 #API Authentication
-client_id <- "e3351504eafd4b8a80327437ea4ccf67"
-client_secret <- "245a650ff09742acad4bd309b6915f54"
+sp_client_id <- "e3351504eafd4b8a80327437ea4ccf67"
+sp_client_secret <- "245a650ff09742acad4bd309b6915f54"
 
 
-Sys.setenv(SPOTIFY_CLIENT_ID = client_id)
-Sys.setenv(SPOTIFY_CLIENT_SECRET = client_secret)
+Sys.setenv(SPOTIFY_CLIENT_ID = sp_client_id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = sp_client_secret)
 
-access_token <- get_spotify_access_token()
-
+access_token_sp <- get_spotify_access_token()
 ```
 
 
 ```{r}
 # Get audio features
-eminem <- get_artist_audio_features('eminem')
+get_artist_audio_features('eminem')
+```
+
+#Genius API
+```{r, message=F}
+#install.packages("geniusr")
+library(geniusr)
+library(dplyr)
+library(tidytext)
+library(purrr)
+library(ggplot2)
 ```
 
 
+```{r}
+# API Authentication
+genius_token()
+
+# token
+
+#ZQRtQF1Hv0fq_4Z1K8TQSt-80MacVmbv2yoeG23ANsLayr-LXVJ_YqVmEMTr-w21
+```
+
+```{r}
+
+search_song("Rap God")
+
+scrape_lyrics_id(235729)
+```
 
