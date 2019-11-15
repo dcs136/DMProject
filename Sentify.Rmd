@@ -1,9 +1,32 @@
 ---
-title: ""
+title: "Sentify"
 output: html_notebook
 ---
  
+```{r}
+#install.packages('spotifyr')
+library(dplyr)
+library(spotifyr)
+```
 
 ```{r}
-plot(cars)
+#API Authentication
+client_id <- "e3351504eafd4b8a80327437ea4ccf67"
+client_secret <- "245a650ff09742acad4bd309b6915f54"
+
+
+Sys.setenv(SPOTIFY_CLIENT_ID = client_id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = client_secret)
+
+access_token <- get_spotify_access_token()
+
 ```
+
+
+```{r}
+# Get audio features
+eminem <- get_artist_audio_features('eminem')
+```
+
+
+
